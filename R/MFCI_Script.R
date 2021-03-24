@@ -43,7 +43,7 @@ get_pairs<-function(transaction_list_filepath,items_list_filepath,itemset,includ
   Integer <- rJava::J("java.lang.Integer")
   topk<-as.integer(top_k)
   cor<-rJava::.jnew("java.lang.String", correlation_type)
-  Double<- J("java.lang.Double")
+  Double<- rJava::J("java.lang.Double")
   cont<-Double$parseDouble(continuity_correction)
   thresh<-Double$parseDouble(correlation_threshold)
   itemset_ar<-rJava::.jarray(purrr::map(unlist(strsplit(itemset,",")),function(x) rJava::.jnew('java.lang.String',toString(x))),contents.class = "java/lang/String")
